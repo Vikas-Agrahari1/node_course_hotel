@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const db = require('./db.js')
+require('dotenv').config()
 
 
 
@@ -18,9 +19,9 @@ const menuRouts = require('./routes/menuRouts.js')
 app.use('/person', personRouts)
 app.use('/menu', menuRouts)
 
+const PORT = process.env.PORT || 3000
 
-
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('listinig port 3000')
 })
 

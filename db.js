@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
-const mongoUrl =   'mongodb://localhost:27017/hotel'
+
+const mongoUrl = process.env.DB_URL
+// const mongoUrl = process.env.DB_URL_LOCAL
 
 mongoose.connect(mongoUrl)
 
@@ -14,7 +17,7 @@ db.on('error', () => {
 })
 db.on('disconnected', () => {
     console.log('Disconnected to server')
-})
+}) 
 
 
 module.exports = db;
